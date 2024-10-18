@@ -25,7 +25,9 @@ Both scripts use the `config.ini` file for parameter configuration, allowing eas
    - [DeepALI Implementation](#deepali-implementation)
    - [VoxelMorph Implementation](#voxelmorph-implementation)
 6. [Configuration](#configuration)
-7. [License](#license)
+7. [Results](#results)
+8. [References](#references)
+9. [License](#license)
 
 ## Project Structure
 
@@ -39,12 +41,12 @@ DEEPALI-IMAGE-REGISTRATION
 │   │   ├── losses.py
 │   │   ├── metrics.py
 │   │   └── model.py
-│   └── scripts
-│       ├── data_generation_brats.py
-│       ├── data_script_new.py
-│       ├── data_script.py
-│       ├── train_mri.py
-│       └── train_voxelmorph.py
+│   ├── scripts
+│   │   ├── data_generation_brats.py
+│   │   ├── data_script_new.py
+│   │   └── data_script.py
+│   ├── train_mri.py
+│   └── train_voxelmorph.py
 ├── .gitignore
 ├── config.ini
 ├── LICENSE
@@ -148,18 +150,18 @@ Both implementations use a `config.ini` file for parameter configuration. The fi
 
 ### DeepALI Implementation Parameters
 
-- `grid_size_x`: Width of the input images (192)
-- `grid_size_y`: Height of the input images (160)
-- `batch_size`: Number of samples per batch for training (32)
-- `train_val_split`: Ratio of training data to validation data (0.8)
-- `val_test_split`: Ratio of validation data to test data (0.5)
-- `nb_epochs`: Number of training epochs (5)
-- `learning_rate`: Learning rate for the optimizer (0.001)
-- `loss`: Loss function used for training (LCC - Local Cross Correlation)
-- `loss_weight`: Weight applied to the loss function (0.005)
-- `images_path`: Path to the input image dataset (oasis_dataset_1.npy)
-- `seg_path`: Path to the segmentation dataset (oasis_dataset_seg.npy)
-- `weights_path`: Path to save or load model weights (deepali_vxl/model_weights/weights.h5)
+- `grid_size_x`: Width of the input images
+- `grid_size_y`: Height of the input images
+- `batch_size`: Number of samples per batch for training
+- `train_val_split`: Ratio of training data to validation data 
+- `val_test_split`: Ratio of validation data to test data 
+- `nb_epochs`: Number of training epochs 
+- `learning_rate`: Learning rate for the optimizer 
+- `loss`: Loss function used for training 
+- `loss_weight`: Weight applied to the loss function 
+- `images_path`: Path to the input image dataset
+- `seg_path`: Path to the segmentation dataset 
+- `weights_path`: Path to save or load model weights
 
 ### VoxelMorph Implementation Parameters
 
@@ -173,7 +175,7 @@ Both implementations use a `config.ini` file for parameter configuration. The fi
 - `verbose`: Verbosity mode (1 - display progress bar)
 - `loss`: Loss function used for training 
 - `grad_norm_type`: Type of gradient normalization 
-- `gamma_param`: Weight of the dice loss (gamma)
+- `gamma_param`: Weight of the dice loss 
 - `learning_rate`: Learning rate for the optimizer 
 - `images_path`: Path to the input image dataset
 - `weights_path`: Path to save or load model weights 
@@ -181,6 +183,36 @@ Both implementations use a `config.ini` file for parameter configuration. The fi
 To modify these parameters, edit the `config.ini` file in the root directory of the project. The scripts will automatically load these parameters when running.
 
 Note: Ensure that the paths to datasets and weight files are correct and accessible from your working directory.
+
+## Results
+
+This section presents the results of our image registration experiments using both the DeepALI-based implementation and the original VoxelMorph implementation.
+
+### Quantitative Results
+
+Below, the two table can be seen demonstrating the quantitative comparison of two models.
+
+<img src="images/dice_table.png" alt="Dice Score Comparison" />
+
+<img src="images/mi_table.png" alt="MI Comparison" />
+
+### Qualitative Results
+
+Below, an example registration can be seen using one of the BraTS datasets. It is important to note that the left images represent the Source (Moving), the middle ones Transformed(Moved), and the right ones Target(Fixed).
+
+<img src="images/example_registration.png" alt="Example Registration" />
+
+## References
+
+1. IXI Dataset: Information eXtraction from Images (IXI) dataset. Available at: https://brain-development.org/ixi-dataset/
+
+2. OASIS Dataset: Open Access Series of Imaging Studies (OASIS). Available at: https://www.oasis-brains.org/
+
+3. BRATS Dataset: Multimodal Brain Tumor Segmentation Challenge (BraTS). Available at: https://www.med.upenn.edu/cbica/brats2021/
+
+4. Balakrishnan, G., Zhao, A., Sabuncu, M. R., Guttag, J., & Dalca, A. V. (2019). VoxelMorph: A Learning Framework for Deformable Medical Image Registration. IEEE Transactions on Medical Imaging, 38(8), 1788-1800.
+
+5. VoxelMorph GitHub Repository: https://github.com/voxelmorph/voxelmorph
 
 ## License
 
