@@ -78,7 +78,6 @@ if __name__ == '__main__':
 
     # Parsing command line arguments
     parser = argparse.ArgumentParser(description='Process model parameters.')
-    parser.add_argument('--slice_number', type=int, default=training_params['slice_number'], help='Number for generate_2d_slices function')
     parser.add_argument('--batch_size', type=int, default=training_params['batch_size'], help='Batch size for data generators')
     parser.add_argument('--train_val_split', type=float, default=training_params['train_val_split'], help='First test size for splitting data')
     parser.add_argument('--val_test_split', type=float, default=training_params['val_test_split'], help='Second test size for splitting data')
@@ -89,7 +88,6 @@ if __name__ == '__main__':
     parser.add_argument('--verbose', type=int, default=training_params['verbose'], help='Verbose mode')
     parser.add_argument('--loss', type=str, default=training_params['loss'], help='Type of loss function')
     parser.add_argument('--grad_norm_type', type=str, choices=['l1', 'l2'], default=training_params['grad_norm_type'], help='Type of norm for Grad loss (l1 or l2)')
-    parser.add_argument('--batch_number', type=int, default=training_params['batch_number'], help='')
     parser.add_argument('--gamma_param', type=float, default=training_params['gamma_param'], help='weight of dice loss (gamma) (default: 0.02)')
     parser.add_argument('--learning_rate', type=float, default=training_params['learning_rate'], help='Learning rate (default: 0.0001)')
     parser.add_argument('--images_path', type=str, default=training_params['images_path'], help='Path to npy file containing the MRI scans as numpy array')
