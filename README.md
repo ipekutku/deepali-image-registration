@@ -163,21 +163,20 @@ Both implementations use a `config.ini` file for parameter configuration. The fi
 
 ### VoxelMorph Implementation Parameters
 
-- `batch_size`: Number of samples per batch for training (16)
-- `train_val_split`: Ratio of training data to validation data (0.8)
-- `val_test_split`: Ratio of validation data to test data (0.5)
-- `int_steps`: Number of integration steps for the diffeomorphic model (0)
-- `lambda_param`: Regularization parameter for the deformation field (0.02)
-- `steps_per_epoch`: Number of steps (batches) per epoch (100)
-- `nb_epochs`: Number of training epochs (25)
+- `batch_size`: Number of samples per batch for training 
+- `train_val_split`: Ratio of training data to validation data 
+- `val_test_split`: Ratio of validation data to test data 
+- `int_steps`: Number of integration steps for the diffeomorphic model 
+- `lambda_param`: Lambda parameter for loss weights
+- `steps_per_epoch`: Number of steps (batches) per epoch 
+- `nb_epochs`: Number of training epochs
 - `verbose`: Verbosity mode (1 - display progress bar)
-- `loss`: Loss function used for training (NCC - Normalized Cross Correlation)
-- `grad_norm_type`: Type of gradient normalization (l2)
-- `gamma_param`: Additional regularization parameter (0.01)
-- `learning_rate`: Learning rate for the optimizer (0.001)
-- `images_path`: Path to the input image dataset (data/brats_flair_dataset.npy)
-- `weights_path`: Path to save or load model weights (vxlmorph/model_weights/weights.h5)
-- `patience`: Number of epochs with no improvement after which training will be stopped (60)
+- `loss`: Loss function used for training 
+- `grad_norm_type`: Type of gradient normalization 
+- `gamma_param`: Weight of the dice loss (gamma)
+- `learning_rate`: Learning rate for the optimizer 
+- `images_path`: Path to the input image dataset
+- `weights_path`: Path to save or load model weights 
 
 To modify these parameters, edit the `config.ini` file in the root directory of the project. The scripts will automatically load these parameters when running.
 
