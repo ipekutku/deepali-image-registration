@@ -63,7 +63,14 @@ def combine_images(moving, fixed, moved):
 
 if __name__ == '__main__':
 
-    config_path = 'config.ini'
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Go up one level to the project root
+    project_root = os.path.dirname(current_dir)
+
+    # Construct the path to the config file
+    config_path = os.path.join(project_root, 'config.ini')
+
     config = configparser.ConfigParser()
     config.read(config_path)
 
