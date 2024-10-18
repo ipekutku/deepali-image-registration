@@ -93,8 +93,6 @@ if __name__ == '__main__':
     parser.add_argument('--images_path', type=str, default=training_params['images_path'], help='Path to npy file containing the MRI scans as numpy array')
     parser.add_argument('--weights_path', type=str, default=training_params['weights_path'], help='Path to save model weights')
 
-    parser.add_argument('--patience', type=int, default=training_params['patience'], help='Number of epochs with no improvement in validation performance after which training will be stopped.')
-
 
     args = parser.parse_args()
 
