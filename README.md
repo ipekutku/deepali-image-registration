@@ -2,14 +2,14 @@
 
 ## Introduction
 
-Image registration is a fundamental task in medical image analysis, involving the spatial alignment of two or more images. It's crucial for various applications, including disease progression monitoring, multi-modal analysis, and population studies. This project implements an unsupervised image registration network inspired by VoxelMorph, using the DeepALI framework.
+Image registration is a fundamental task in medical image analysis, involving the spatial alignment of two or more images. It's crucial for various applications, including disease progression monitoring, multi-modal analysis, and population studies. This project implements an unsupervised image registration network inspired by VoxelMorph, using the DeepAli framework.
 
 The main goals of this project are:
 1. To provide a flexible and efficient implementation of unsupervised image registration for medical imaging.
-2. To compare the performance of our DeepALI-based implementation with the original VoxelMorph implementation.
+2. To compare the performance of our DeepAli-based implementation with the original VoxelMorph implementation.
 
 This repository contains two main training scripts:
-1. `train_mri.py`: Our implementation using the DeepALI framework.
+1. `train_mri.py`: Our implementation using the DeepAli framework.
 2. `train_voxelmorph.py`: The original VoxelMorph implementation in TensorFlow.
 
 Both scripts use the `config.ini` file for parameter configuration, allowing easy experimentation and comparison between the two implementations.
@@ -22,7 +22,7 @@ Both scripts use the `config.ini` file for parameter configuration, allowing eas
    - [Conda Environment](#conda-environment)
 4. [Installation](#installation)
 5. [Usage](#usage)
-   - [DeepALI Implementation](#deepali-implementation)
+   - [DeepAli Implementation](#deepali-implementation)
    - [VoxelMorph Implementation](#voxelmorph-implementation)
 6. [Configuration](#configuration)
 7. [Results](#results)
@@ -57,7 +57,7 @@ DEEPALI-IMAGE-REGISTRATION
 
 ## Requirements
 
-- For the DeepALI implementation: See `requirements.txt`
+- For the DeepAli implementation: See `requirements.txt`
 - For the original VoxelMorph implementation: See `requirements_tf.txt`
 
 ## Environment Setup
@@ -112,15 +112,15 @@ cd DEEPALI-IMAGE-REGISTRATION
 
 ## Usage
 
-### DeepALI Implementation
+### DeepAli Implementation
 
-To run the DeepALI-based implementation:
+To run the DeepAli-based implementation:
 
 ```
 python src/scripts/train_mri.py
 ```
 
-This script uses the DeepALI framework to train an unsupervised image registration network.
+This script uses the DeepAli framework to train an unsupervised image registration network.
 
 ### VoxelMorph Implementation
 
@@ -146,9 +146,9 @@ This script uses the original VoxelMorph architecture using TensorFlow.
 
 ## Configuration
 
-Both implementations use a `config.ini` file for parameter configuration. The file is divided into two sections: `[pytorch]` for the DeepALI implementation and `[tensorflow]` for the original VoxelMorph implementation.
+Both implementations use a `config.ini` file for parameter configuration. The file is divided into two sections: `[pytorch]` for the DeepAli implementation and `[tensorflow]` for the original VoxelMorph implementation.
 
-### DeepALI Implementation Parameters
+### DeepAli Implementation Parameters
 
 - `grid_size_x`: Width of the input images
 - `grid_size_y`: Height of the input images
@@ -186,11 +186,11 @@ Note: Ensure that the paths to datasets and weight files are correct and accessi
 
 ## Results
 
-This section presents the results of our image registration experiments using both the DeepALI-based implementation and the original VoxelMorph implementation.
+This section presents the results of our image registration experiments using both the DeepAli-based implementation and the original VoxelMorph implementation.
 
 ### Quantitative Results
 
-Below, the two table can be seen demonstrating the quantitative comparison of two models.
+Below, the two table can be seen demonstrating the quantitative comparison of two models. While above one represents the average dice scores comparison, the below one represents the Average Mutual Information scores comparison. Both models have been trained for 20 epochs.
 
 <img src="images/dice_table.png" alt="Dice Score Comparison" />
 
@@ -201,6 +201,10 @@ Below, the two table can be seen demonstrating the quantitative comparison of tw
 Below, an example registration can be seen using one of the BraTS datasets. It is important to note that the left images represent the Source (Moving), the middle ones Transformed(Moved), and the right ones Target(Fixed).
 
 <img src="images/example_registration.png" alt="Example Registration" />
+
+The implemented model shows promising results, with clear registration outcomes. However, the project is open to extensive experimentation with hyperparameter tuning.
+
+Current implementation is slower than the original VoxelMorph, but optimization is possible. Another future work includes the model working on 3D data.
 
 ## References
 
@@ -213,6 +217,8 @@ Below, an example registration can be seen using one of the BraTS datasets. It i
 4. Balakrishnan, G., Zhao, A., Sabuncu, M. R., Guttag, J., & Dalca, A. V. (2019). VoxelMorph: A Learning Framework for Deformable Medical Image Registration. IEEE Transactions on Medical Imaging, 38(8), 1788-1800.
 
 5. VoxelMorph GitHub Repository: https://github.com/voxelmorph/voxelmorph
+
+6. DeepAli Framework: https://biomedia.github.io/deepali/
 
 ## License
 
